@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SubFracture : MonoBehaviour
+{
+    // ... (оставьте остальной код без изменений)
+
+    void OnCollisionEnter(Collision collision)
+    {
+        // Проверка наличия тэга "Bit" у объекта, с которым произошло соприкосновение
+        if (collision.collider.CompareTag("Bit"))
+        {
+            // Вместо проверки наличия родительского объекта, используем просто parent
+            if (parent != null)
+            {
+                // Вызываем метод Fracture при соприкосновении с объектом "Bit"
+                parent.Fracture(collision.contacts[0].point, collision.impulse);
+            }
+        }
+        else if (collision.impulse.magnitude > parent.breakForce)
+        {
+            // Аналогично вашему оригинальному коду, реагируем на слишком большую силу
+            connections = new List<SubFracture>();
+            grounded = false;
+            parent.Fracture(collision.contacts[0].point, collision.impulse);
+        }
+    }
+
+    // ... (оставьте остальной код без изменений)
+}
