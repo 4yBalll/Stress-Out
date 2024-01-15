@@ -182,3 +182,42 @@ public class SmartFracture : MonoBehaviour
 Серьезность	Код	Описание	Проект	Файл	Строка	Состояние подавления
 Ошибка	CS1061	"SmartFracture" не содержит определения "collisionObject", и не удалось найти доступный метод расширения "collisionObject", принимающий тип "SmartFracture" в качестве первого аргумента (возможно, пропущена директива using или ссылка на сборку).	Assembly-CSharp	C:\Users\OEM\Documents\GitHub\Stress-Out\XD\Assets\Skript\SubFracture.cs	75	Активные
 
+
+
+
+
+
+
+Прошу прощения за недоразумение. Вызов collisionObject должен быть заменен на mainCollisionObject, как указано в предыдущем ответе. Давайте уточним код:
+
+В классе SubFracture замените:
+
+if (parent.collisionObject != null && collision.collider == parent.collisionObject.GetComponent<Collider>())
+
+
+на
+
+if (parent.mainCollisionObject != null && collision.collider == parent.mainCollisionObject)
+
+
+Таким образом, исправленный фрагмент кода в SubFracture выглядит так:
+
+void OnCollisionEnter(Collision collision)
+{
+    // Проверка соприкосновения с основным mainCollisionObject
+    if (parent.mainCollisionObject != null && collision.collider == parent.mainCollisionObject)
+    {
+        parent.Fracture(collision.contacts[0].point, collision.impulse);
+    }
+    // Проверка соприкосновения с дополнительным additionalCollisionObject
+    else if (parent.additionalCollisionObject != null && collision.collider == parent.additionalCollisionObject)
+    {
+        parent.Fracture(collision.contacts[0].point, Vector3.zero);  // Не передаем силу в этом случае
+    }
+    else if (collision.impulse.magnitude > parent.breakForce)
+    {
+        connections = new List<SubFracture>();
+        grounded = false;
+        parent.Fracture(collision.contacts[0].point, collision.impulse);
+    }
+}
