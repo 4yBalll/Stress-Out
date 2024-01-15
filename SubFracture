@@ -1,0 +1,13 @@
+ void OnCollisionEnter(Collision collision)
+    {
+        // Проверка наличия тэга "Bit" у объекта, с которым произошло соприкосновение
+        if (collision.collider.CompareTag("Bit"))
+        {
+            // Вместо проверки наличия родительского объекта, используем просто parent
+            if (parent != null)
+            {
+                // Вызываем метод Fracture при соприкосновении с объектом "Bit"
+                parent.Fracture(collision.contacts[0].point, collision.impulse);
+            }
+        }
+    }
