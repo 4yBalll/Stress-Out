@@ -7,7 +7,7 @@ public class SmartFracture : MonoBehaviour
 {
     public float breakRadius = 0.2f;
     public float breakForce = 100;
-    public GameObject collisionObject;  // Новое публичное поле для объекта
+    public Collider additionalCollisionObject;  // Новое публичное поле для коллайдера объекта
 
     private List<SubFracture> cells;
 
@@ -49,14 +49,22 @@ public class SmartFracture : MonoBehaviour
     {
         foreach (SubFracture cell in cells)
         {
-            // Добавьте проверку на столкновение с объектом
+            // Проверка соприкосновения с основным collisionObject
             if (collisionObject != null && cell.gameObject == collisionObject)
             {
-                // Если подобъект столкнулся с collisionObject, обнулите его соединения и установите grounded в false
                 cell.connections = new List<SubFracture>();
                 cell.grounded = false;
                 cell.GetComponent<Rigidbody>().isKinematic = false;
                 cell.GetComponent<Rigidbody>().AddForceAtPosition(force, point, ForceMode.Force);
+            }
+
+            // Проверка соприкосновения с дополнительным additionalCollisionObject
+            if (additionalCollisionObject != null && cell.gameObject == additionalCollisionObject)
+            {
+                cell.connections = new List<SubFracture>();
+                cell.grounded = false;
+                cell.GetComponent<Rigidbody>().isKinematic = false;
+                // Не передаем силу в этом случае
             }
         }
     }

@@ -71,22 +71,18 @@ public class SubFracture : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        // Проверка наличия ссылки на SmartFracture в родительском объекте
-        if (parent == null)
-        {
-            UnityEngine.Debug.Log("Your debug message here.");
-            return;
-        }
-
-        // Проверка наличия коллайдера в публичной переменной и столкновения с ним
+        // Проверка соприкосновения с основным collisionObject
         if (parent.collisionObject != null && collision.collider == parent.collisionObject.GetComponent<Collider>())
         {
-            // Вызываем метод Fracture у родительского объекта SmartFracture
             parent.Fracture(collision.contacts[0].point, collision.impulse);
+        }
+        // Проверка соприкосновения с дополнительным additionalCollisionObject
+        else if (parent.additionalCollisionObject != null && collision.collider == parent.additionalCollisionObject)
+        {
+            parent.Fracture(collision.contacts[0].point, Vector3.zero);  // Не передаем силу в этом случае
         }
         else if (collision.impulse.magnitude > parent.breakForce)
         {
-            // Если условие по величине импульса выполняется, обнуляем соединения и вызываем Fracture
             connections = new List<SubFracture>();
             grounded = false;
             parent.Fracture(collision.contacts[0].point, collision.impulse);
