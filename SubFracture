@@ -2,33 +2,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SubFracture : MonoBehaviour
+public class SmartFracture : MonoBehaviour
 {
-    // ... (оставьте остальной код без изменений)
+    public float breakRadius = 0.2f;
+    public float breakForce = 100;
+    public GameObject heldObject;  // Объект, который игрок держит в руке
 
-    void OnCollisionEnter(Collision collision)
+    private List<SubFracture> cells;
+
+    void Start()
     {
-        // Проверка наличия тэга "Bit" у объекта, с которым произошло соприкосновение
-        if (collision.collider.CompareTag("Bit"))
-        {
-            // Вместо проверки наличия родительского объекта, используем просто parent
-            if (parent != null)
-            {
-                // Вызываем метод Fracture при соприкосновении с объектом "Bit"
-                parent.Fracture(collision.contacts[0].point, collision.impulse);
-            }
-        }
-        else if (collision.impulse.magnitude > parent.breakForce)
-        {
-            // Аналогично вашему оригинальному коду, реагируем на слишком большую силу
-            connections = new List<SubFracture>();
-            grounded = false;
-            parent.Fracture(collision.contacts[0].point, collision.impulse);
-        }
-
-        // Используем явное указание пространства имен для Debug
-        UnityEngine.Debug.Log("Collision with object: " + collision.collider.name);
+        InitSubFractures();
     }
 
-    // ... (оставьте остальной код без изменений)
+    void InitSubFractures()
+    {
+        cells = new List<SubFracture>();
+        cells.AddRange(transform.GetComponentsInChildren<SubFracture>());
+
+        foreach (SubFracture cell in cells)
+        {
+            BoxCollider tempCollider = cell.gameObject.AddComponent<BoxCollider>();
+            tempCollider.size *= 2.4f;
+
+            Collider[] hitColliders = Physics.OverlapBox(cell.transform.position, tempCollider.size / 2, cell.transform.rotation);
+            int i = 0;
+
+            while (i < hitColliders.Length)
+            {
+                if (hitColliders[i].GetComponent<SubFracture>() && hitColliders[i].transform.root == cell.transform.root && hitColliders[i].gameObject != cell.gameObject)
+                {
+                    cell.connections.Add(hitColliders[i].GetComponent<SubFracture>());
+                    hitColliders[i].GetComponent<SubFracture>().connections.Add(cell);
+                    UnityEngine.Debug.Log(cell.name + "_" + hitColliders[i].name);
+
+                }
+                i++;
+            }
+
+            Destroy(tempCollider);
+        }
+    }
+
+  public void Fracture(Vector3 point, Vector3 force)
+    {
+        foreach (SubFracture cell in cells)
+        {
+            // Проверяем, держит ли игрок объект с тэгом "Bit"
+            if (heldObject != null && heldObject.CompareTag("Bit"))
+            {
+                // Разрушаем только при наличии тэга "Bit"
+                cell.connections = new List<SubFracture>();
+                cell.grounded = false;
+                cell.GetComponent<Rigidbody>().isKinematic = false;
+                cell.GetComponent<Rigidbody>().AddForceAtPosition(force, point, ForceMode.Force);
+            }
+        }
+    }
 }
