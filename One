@@ -98,3 +98,9 @@ public class SubFracture : MonoBehaviour
         }
     }
 }
+
+
+
+Серьезность	Код	Описание	Проект	Файл	Строка	Состояние подавления
+Ошибка	CS1061	"SmartFracture" не содержит определения "collisionObject", и не удалось найти доступный метод расширения "collisionObject", принимающий тип "SmartFracture" в качестве первого аргумента (возможно, пропущена директива using или ссылка на сборку).	Assembly-CSharp	C:\Users\OEM\Documents\GitHub\Stress-Out\XD\Assets\Skript\SubFracture.cs	75	Активные
+
