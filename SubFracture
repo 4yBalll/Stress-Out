@@ -1,13 +1,23 @@
- void OnCollisionEnter(Collision collision)
+void OnCollisionEnter(Collision collision)
+{
+    // Проверка наличия тэга "Bit" у объекта, с которым произошло соприкосновение
+    if (collision.collider.CompareTag("Bit"))
     {
-        // Проверка наличия тэга "Bit" у объекта, с которым произошло соприкосновение
-        if (collision.collider.CompareTag("Bit"))
+        // Вместо проверки наличия родительского объекта, используем просто parent
+        if (parent != null)
         {
-            // Вместо проверки наличия родительского объекта, используем просто parent
-            if (parent != null)
-            {
-                // Вызываем метод Fracture при соприкосновении с объектом "Bit"
-                parent.Fracture(collision.contacts[0].point, collision.impulse);
-            }
+            // Вызываем метод Fracture при соприкосновении с объектом "Bit"
+            parent.Fracture(collision.contacts[0].point, collision.impulse);
         }
     }
+    else if (collision.impulse.magnitude > parent.breakForce)
+    {
+        // Аналогично вашему оригинальному коду, реагируем на слишком большую силу
+        connections = new List<SubFracture>();
+        grounded = false;
+        parent.Fracture(collision.contacts[0].point, collision.impulse);
+    }
+
+    // Добавим отладочное сообщение для вывода информации в консоль
+    Debug.Log("Collision with object: " + collision.collider.name);
+}
