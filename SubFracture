@@ -1,23 +1,34 @@
-void OnCollisionEnter(Collision collision)
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SubFracture : MonoBehaviour
 {
-    // Проверка наличия тэга "Bit" у объекта, с которым произошло соприкосновение
-    if (collision.collider.CompareTag("Bit"))
+    // ... (оставьте остальной код без изменений)
+
+    void OnCollisionEnter(Collision collision)
     {
-        // Вместо проверки наличия родительского объекта, используем просто parent
-        if (parent != null)
+        // Проверка наличия тэга "Bit" у объекта, с которым произошло соприкосновение
+        if (collision.collider.CompareTag("Bit"))
         {
-            // Вызываем метод Fracture при соприкосновении с объектом "Bit"
+            // Вместо проверки наличия родительского объекта, используем просто parent
+            if (parent != null)
+            {
+                // Вызываем метод Fracture при соприкосновении с объектом "Bit"
+                parent.Fracture(collision.contacts[0].point, collision.impulse);
+            }
+        }
+        else if (collision.impulse.magnitude > parent.breakForce)
+        {
+            // Аналогично вашему оригинальному коду, реагируем на слишком большую силу
+            connections = new List<SubFracture>();
+            grounded = false;
             parent.Fracture(collision.contacts[0].point, collision.impulse);
         }
-    }
-    else if (collision.impulse.magnitude > parent.breakForce)
-    {
-        // Аналогично вашему оригинальному коду, реагируем на слишком большую силу
-        connections = new List<SubFracture>();
-        grounded = false;
-        parent.Fracture(collision.contacts[0].point, collision.impulse);
+
+        // Используем явное указание пространства имен для Debug
+        UnityEngine.Debug.Log("Collision with object: " + collision.collider.name);
     }
 
-    // Добавим отладочное сообщение для вывода информации в консоль
-    Debug.Log("Collision with object: " + collision.collider.name);
+    // ... (оставьте остальной код без изменений)
 }
