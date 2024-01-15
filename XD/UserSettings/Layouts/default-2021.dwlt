@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 19
+  controlID: 73
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 29
+  controlID: 19
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 30
+  controlID: 20
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -642,9 +642,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 11.068105, y: 0.885249, z: -8.233447}
+    m_Target: {x: -0.12598062, y: 2.9924564, z: -9.678322}
     speed: 2
-    m_Value: {x: 11.068105, y: 0.885249, z: -8.233447}
+    m_Value: {x: -0.12598062, y: 2.9924564, z: -9.678322}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -691,13 +691,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.058048543, y: 0.30383265, z: 0.024383731, w: -0.9517726}
+    m_Target: {x: 0.012635902, y: 0.8487273, z: 0.03068438, w: -0.5298587}
     speed: 2
-    m_Value: {x: 0.05794965, y: 0.30493242, z: 0.024444519, w: -0.950295}
+    m_Value: {x: 0.011830655, y: 0.8478448, z: 0.029377557, w: -0.5292979}
   m_Size:
     m_Target: 0.8660254
     speed: 2
-    m_Value: 0.8660252
+    m_Value: 0.8660254
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -754,23 +754,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 32}
-      m_SelectedIDs: b68e0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: d8f2ffff36fbffffd06e0000
+      m_SelectedIDs: d0f7ffff
+      m_LastClickedID: -2096
+      m_ExpandedIDs: 36fbffffd06e0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: BottlePink_cell.006
-        m_OriginalName: BottlePink_cell.006
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -3420
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -913,23 +913,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefab
+    - Assets/Prefab/Bytilki/VazaBlack
     m_Globs: []
     m_OriginalText: 
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
   m_StartGridSize: 61
   m_LastFolders:
-  - Assets/Prefab
+  - Assets/Prefab/Bytilki/VazaBlack
   m_LastFoldersGridSize: 61
   m_LastProjectPath: C:\Users\Keriyaki\Documents\GitHub\Stress-Out\XD
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 9}
-    m_SelectedIDs: fe860000
-    m_LastClickedID: 34558
-    m_ExpandedIDs: 00000000d8860000f8860000fe860000b68e000000ca9a3b
+    scrollPos: {x: 0, y: 59}
+    m_SelectedIDs: a48e0000
+    m_LastClickedID: 36516
+    m_ExpandedIDs: 00000000d8860000f6860000f88600000687000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
