@@ -55,30 +55,31 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\OEM\Documents\GitHub\Stress-Out1\Stress-Out\XD\Assets\SteamTema\SteamVR\Input\Plugins\JSON.NET\Valve.Newtonsoft.Json.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Vector2_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Generator.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Pose_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_ActionSetPropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Vibration_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_EditorWindow.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_PostProcessBuild.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_CopyExampleInputFiles.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Single_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Boolean_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_GenericPropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_In_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_ActionManifest_Manager.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Skeleton_PoserEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Skeleton_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Vector3_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Out_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_LiveWindow.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_Action_Single_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_Action_Boolean_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_LiveWindow.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_Action_Pose_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_Action_Vector2_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_ActionSetPropertyEditor.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_Action_In_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_CopyExampleInputFiles.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_Action_Vector3_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_Action_Skeleton_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_Action_Out_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_Action_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_Action_GenericPropertyEditor.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_EditorWindow.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_Action_Vibration_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_ActionManifest_Manager.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_Generator.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_PostProcessBuild.cs" />
+    <Compile Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Skeleton_PoserEditor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Editor.asmdef" />
+    <None Include="Assets\SteamTema\SteamVR\Input\Editor\SteamVR_Input_Editor.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -348,11 +349,11 @@
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.IonicZip">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
-    </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.2.0\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.IonicZip">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.2.0\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
@@ -364,7 +365,7 @@
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
     </Reference>
     <Reference Include="Valve.Newtonsoft.Json">
-      <HintPath>Assets\SteamVR\Input\Plugins\JSON.NET\Valve.Newtonsoft.Json.dll</HintPath>
+      <HintPath>Assets\SteamTema\SteamVR\Input\Plugins\JSON.NET\Valve.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
