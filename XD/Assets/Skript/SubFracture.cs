@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class SubFracture : MonoBehaviour
@@ -71,28 +70,15 @@ public class SubFracture : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        // Проверка наличия ссылки на SmartFracture в родительском объекте
-        if (parent == null)
+        if (collision.impulse.magnitude > parent.breakForce)
         {
-            UnityEngine.Debug.Log("Your debug message here.");
-            return;
-        }
-
-        // Проверка наличия коллайдера в публичной переменной и столкновения с ним
-        if (parent.collisionObject != null && collision.collider == parent.collisionObject.GetComponent<Collider>())
-        {
-            // Вызываем метод Fracture у родительского объекта SmartFracture
-            parent.Fracture(collision.contacts[0].point, collision.impulse);
-        }
-        else if (collision.impulse.magnitude > parent.breakForce)
-        {
-            // Если условие по величине импульса выполняется, обнуляем соединения и вызываем Fracture
+            // Make sure the hit cell disconnects
             connections = new List<SubFracture>();
             grounded = false;
+
             parent.Fracture(collision.contacts[0].point, collision.impulse);
         }
     }
-
 
     private void OnDrawGizmosSelected()
     {
