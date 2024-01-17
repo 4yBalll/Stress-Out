@@ -110,8 +110,10 @@
 -define:ENABLE_TERRAIN
 -define:ENABLE_TILEMAP
 -define:ENABLE_TIMELINE
+-define:ENABLE_INPUT_SYSTEM
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
+-define:USE_INPUT_SYSTEM_POSE_CONTROL
 -define:OPENVR_XR_API
 -define:UNITY_LEGACY_INPUT_HELPERS
 -define:CSHARP_7_OR_LATER
@@ -489,6 +491,8 @@
 "Assets/SteamTema/SteamVR/InteractionSystem/Teleport/Scripts/TeleportMarkerBase.cs"
 "Assets/SteamTema/SteamVR/InteractionSystem/Teleport/Scripts/TeleportPoint.cs"
 "Assets/SteamTema/SteamVR/InteractionSystem/Teleport/Scripts/TeleportURPHelper.cs"
+"Assets/SteamTema/SteamVR/OpenVRUnityXRPackage/Editor/OpenVRPackageInstaller.cs"
+"Assets/SteamTema/SteamVR/OpenVRUnityXRPackage/Editor/OpenVRSimpleJSON.cs"
 "Assets/SteamTema/SteamVR/Plugins/openvr_api.cs"
 "Assets/SteamTema/SteamVR/Scripts/SteamVR.cs"
 "Assets/SteamTema/SteamVR/Scripts/SteamVR_Behaviour.cs"
